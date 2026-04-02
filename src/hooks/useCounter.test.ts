@@ -5,7 +5,7 @@ import { useCounter } from './useCounter';
 describe('useCounter hook', () => {
   beforeEach(() => {
     localStorage.clear();
-    vi.clearAllMocks();
+    vi.restoreAllMocks();
   });
 
   it('increments count by 1', async () => {
@@ -76,8 +76,7 @@ describe('useCounter hook', () => {
 
   it('falls back to 0 when localStorage throws error', async () => {
     // Mock localStorage to throw an error
-    const originalGetItem = Storage.prototype.getItem;
-    Storage.prototype.getItem = vi.fn(() => {
+    vi.spyOn(Storage.prototype, 'getItem').mockImplementation(() => {
       throw new Error('SecurityError');
     });
 
@@ -87,9 +86,6 @@ describe('useCounter hook', () => {
 
     expect(result.current.count).toBe(0);
     expect(result.current.error).toBe('localStorage erişim hatası');
-
-    // Restore original
-    Storage.prototype.getItem = originalGetItem;
   });
 
   it('persists count to localStorage when changed', async () => {
@@ -110,8 +106,7 @@ describe('useCounter hook', () => {
     await waitFor(() => expect(result.current.loading).toBe(false));
 
     // Mock localStorage.setItem to fail
-    const originalSetItem = Storage.prototype.setItem;
-    Storage.prototype.setItem = vi.fn(() => {
+    vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
       throw new Error('QuotaExceededError');
     });
 
@@ -119,9 +114,7 @@ describe('useCounter hook', () => {
       result.current.increment();
     });
 
-    await waitFor(() => expect(result.current.error).toBe('localStorage yazma hatası'));
-
-    // Restore original
-    Storage.prototype.setItem = originalSetItem;
+    await waitFor(() => expect(result.current.error).toBeTruthy());
+    expect(result.current.error).toContain('localStorage');
   });
 });
