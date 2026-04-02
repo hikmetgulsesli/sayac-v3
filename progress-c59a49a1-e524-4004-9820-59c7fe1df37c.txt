@@ -1,0 +1,18 @@
+=== US-002: Counter state management with localStorage ===
+COMPLETED: 2026-04-02T20:05:00+03:00
+FILES CHANGED: 
+- src/utils/storage.ts (new)
+- src/utils/storage.test.ts (new)
+- src/hooks/useCounter.ts (new)
+- src/hooks/useCounter.test.ts (new)
+- src/App.tsx (updated to use useCounter hook)
+- src/index.css (updated with design tokens)
+- vite.config.ts (updated with test config)
+- package.json (updated with test dependencies)
+KEY DECISIONS:
+- Used safe localStorage wrappers to handle SecurityError and QuotaExceededError
+- Implemented useCounter hook with loading and error states
+- UI text in Turkish as per requirements
+- Button labels: 'Arttır', 'Azalt', 'Sıfırla'
+DEPENDENCIES ADDED:
+- vitest, @testing-library/react, @testing-library/jest-dom, jsdom
