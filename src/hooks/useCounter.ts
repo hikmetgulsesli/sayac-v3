@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { getStorageItem, setStorageItem } from '../utils/storage';
 
 const STORAGE_KEY = 'sayac-v3-count';
@@ -22,12 +22,10 @@ export function useCounter(): UseCounterReturn {
   const [count, setCount] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const isMounted = useRef(false);
 
   // Load from localStorage on mount
   useEffect(() => {
-    setLoading(true);
-    setError(null);
-
     const saved = getStorageItem(STORAGE_KEY);
     if (saved !== null) {
       const parsed = parseInt(saved, 10);
@@ -35,16 +33,23 @@ export function useCounter(): UseCounterReturn {
         setCount(parsed);
       }
     }
-
     setLoading(false);
   }, []);
 
   // Persist to localStorage whenever count changes
   useEffect(() => {
+    if (!isMounted.current) {
+      isMounted.current = true;
+      return;
+    }
+
     if (!loading) {
       const success = setStorageItem(STORAGE_KEY, count.toString());
       if (!success) {
-        setError('localStorage yazma hatası');
+        // Use a microtask to avoid setState during render warning
+        Promise.resolve().then(() => {
+          setError('localStorage yazma hatası');
+        });
       }
     }
   }, [count, loading]);

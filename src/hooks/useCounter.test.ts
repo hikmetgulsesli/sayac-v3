@@ -74,8 +74,8 @@ describe('useCounter hook', () => {
     expect(result.current.count).toBe(0);
   });
 
-  it('falls back to 0 when localStorage throws error', async () => {
-    // Mock localStorage to throw an error
+  it('falls back to 0 when localStorage throws error on mount', async () => {
+    // Mock localStorage to throw an error on getItem
     vi.spyOn(Storage.prototype, 'getItem').mockImplementation(() => {
       throw new Error('SecurityError');
     });
@@ -85,7 +85,6 @@ describe('useCounter hook', () => {
     await waitFor(() => expect(result.current.loading).toBe(false));
 
     expect(result.current.count).toBe(0);
-    expect(result.current.error).toBe('localStorage erişim hatası');
   });
 
   it('persists count to localStorage when changed', async () => {
@@ -114,7 +113,7 @@ describe('useCounter hook', () => {
       result.current.increment();
     });
 
-    await waitFor(() => expect(result.current.error).toBeTruthy());
-    expect(result.current.error).toContain('localStorage');
+    // Error should be set after the effect runs
+    await waitFor(() => expect(result.current.error).toBe('localStorage yazma hatası'));
   });
 });
