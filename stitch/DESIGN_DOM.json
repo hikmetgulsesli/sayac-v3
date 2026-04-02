@@ -1,0 +1,682 @@
+{
+  "generatedAt": "2026-04-02T16:35:14.686Z",
+  "screenCount": 4,
+  "screens": {
+    "02eb9b2f41454644959dda41011ad8c0": {
+      "screenId": "02eb9b2f41454644959dda41011ad8c0",
+      "sections": [
+        {
+          "tag": "header",
+          "classes": [
+            "w-full",
+            "top-0",
+            "sticky",
+            "z-[100]",
+            "bg-[#0c1324]",
+            "flex",
+            "justify-between",
+            "items-center",
+            "px-8",
+            "py-6"
+          ],
+          "childCount": 2
+        },
+        {
+          "tag": "main",
+          "classes": [
+            "max-w-5xl",
+            "mx-auto",
+            "px-6",
+            "pt-12",
+            "pb-32"
+          ],
+          "childCount": 10
+        },
+        {
+          "tag": "nav",
+          "classes": [
+            "fixed",
+            "bottom-0",
+            "left-0",
+            "w-full",
+            "flex",
+            "justify-around",
+            "items-center",
+            "px-6",
+            "pb-8",
+            "pt-4"
+          ],
+          "childCount": 0
+        }
+      ],
+      "buttons": [
+        {
+          "label": "history",
+          "classes": [
+            "text-slate-400",
+            "hover:text-green-300",
+            "transition-colors",
+            "scale-95",
+            "duration-200"
+          ],
+          "icon": "history",
+          "action": "click-action"
+        },
+        {
+          "label": "settings",
+          "classes": [
+            "text-slate-400",
+            "hover:text-green-300",
+            "transition-colors",
+            "scale-95",
+            "duration-200"
+          ],
+          "icon": "settings",
+          "action": "click-action"
+        },
+        {
+          "label": "ARTIR\nDeğeri Yükselt\n\nadd_circle",
+          "classes": [
+            "group",
+            "relative",
+            "w-full",
+            "h-32",
+            "md:h-40",
+            "bg-gradient-to-br",
+            "from-primary",
+            "to-primary-container",
+            "rounded-full",
+            "flex",
+            "items-center",
+            "justify-between",
+            "px-10",
+            "active:scale-95",
+            "transition-transform",
+            "overflow-hidden",
+            "shadow-[0_20px_50px_rgba(34,197,94,0.15)]"
+          ],
+          "icon": "add_circle",
+          "action": "create"
+        },
+        {
+          "label": "remove\nAZALT",
+          "classes": [
+            "flex-1",
+            "h-24",
+            "bg-error-container",
+            "rounded-full",
+            "flex",
+            "flex-col",
+            "items-center",
+            "justify-center",
+            "gap-1",
+            "active:scale-95",
+            "transition-transform",
+            "group"
+          ],
+          "icon": "remove",
+          "action": "click-action"
+        },
+        {
+          "label": "restart_alt\nSIFIRLA",
+          "classes": [
+            "flex-1",
+            "h-24",
+            "bg-secondary-container",
+            "rounded-full",
+            "flex",
+            "flex-col",
+            "items-center",
+            "justify-center",
+            "gap-1",
+            "active:scale-95",
+            "transition-transform",
+            "group"
+          ],
+          "icon": "restart_alt",
+          "action": "click-action"
+        }
+      ],
+      "inputs": [],
+      "navLinks": [
+        {
+          "label": "plus_one\nCounter",
+          "href": "#",
+          "classes": [
+            "flex",
+            "flex-col",
+            "items-center",
+            "justify-center",
+            "text-green-400",
+            "bg-[#23293c]",
+            "rounded-xl",
+            "px-4",
+            "py-2",
+            "hover:bg-[#23293c]",
+            "transition-all",
+            "scale-98",
+            "active:scale-95",
+            "duration-150"
+          ],
+          "icon": "plus_one"
+        },
+        {
+          "label": "format_list_bulleted\nLogs",
+          "href": "#",
+          "classes": [
+            "flex",
+            "flex-col",
+            "items-center",
+            "justify-center",
+            "text-slate-500",
+            "px-4",
+            "py-2",
+            "hover:bg-[#23293c]",
+            "transition-all",
+            "scale-98",
+            "active:scale-95",
+            "duration-150"
+          ],
+          "icon": "format_list_bulleted"
+        },
+        {
+          "label": "query_stats\nAnalytics",
+          "href": "#",
+          "classes": [
+            "flex",
+            "flex-col",
+            "items-center",
+            "justify-center",
+            "text-slate-500",
+            "px-4",
+            "py-2",
+            "hover:bg-[#23293c]",
+            "transition-all",
+            "scale-98",
+            "active:scale-95",
+            "duration-150"
+          ],
+          "icon": "query_stats"
+        }
+      ],
+      "cards": [],
+      "icons": [
+        "history",
+        "settings",
+        "add_circle",
+        "remove",
+        "restart_alt",
+        "info",
+        "plus_one",
+        "format_list_bulleted",
+        "query_stats"
+      ],
+      "images": [],
+      "cssVars": {},
+      "fonts": [
+        "Space Grotesk",
+        "Inter",
+        "Material Symbols Outlined"
+      ],
+      "layoutHints": {
+        "gridCols": 1,
+        "flexDirection": "col",
+        "gap": "6"
+      },
+      "tabBar": [
+        {
+          "label": "Counter",
+          "icon": "plus_one",
+          "active": true
+        },
+        {
+          "label": "Logs",
+          "icon": "format_list_bulleted",
+          "active": true
+        },
+        {
+          "label": "Analytics",
+          "icon": "query_stats",
+          "active": true
+        }
+      ],
+      "title": "Başlangıç (0) Durumu"
+    },
+    "2ee1f7d81bdc4ccc826c14dda1921dc4": {
+      "screenId": "2ee1f7d81bdc4ccc826c14dda1921dc4",
+      "sections": [
+        {
+          "tag": "header",
+          "classes": [
+            "w-full",
+            "top-0",
+            "sticky",
+            "bg-[#0c1324]",
+            "flex",
+            "justify-between",
+            "items-center",
+            "px-8",
+            "py-6",
+            "z-50"
+          ],
+          "childCount": 2
+        },
+        {
+          "tag": "main",
+          "classes": [
+            "flex-grow",
+            "flex",
+            "flex-col",
+            "items-center",
+            "justify-center",
+            "px-6",
+            "pb-32"
+          ],
+          "childCount": 11
+        },
+        {
+          "tag": "nav",
+          "classes": [
+            "fixed",
+            "bottom-0",
+            "left-0",
+            "w-full",
+            "flex",
+            "justify-around",
+            "items-center",
+            "px-6",
+            "pb-8",
+            "pt-4"
+          ],
+          "childCount": 0
+        }
+      ],
+      "buttons": [
+        {
+          "label": "history",
+          "classes": [
+            "text-slate-400",
+            "hover:text-green-300",
+            "transition-colors",
+            "duration-200"
+          ],
+          "icon": "history",
+          "action": "click-action"
+        },
+        {
+          "label": "settings",
+          "classes": [
+            "text-slate-400",
+            "hover:text-green-300",
+            "transition-colors",
+            "duration-200"
+          ],
+          "icon": "settings",
+          "action": "click-action"
+        },
+        {
+          "label": "Eylem\nARTIR\n\nadd_circle",
+          "classes": [
+            "md:col-span-3",
+            "h-24",
+            "bg-gradient-to-br",
+            "from-primary",
+            "to-primary-container",
+            "text-on-primary",
+            "rounded-xl",
+            "flex",
+            "items-center",
+            "justify-between",
+            "px-8",
+            "group",
+            "active:scale-95",
+            "duration-150",
+            "shadow-lg",
+            "shadow-primary/10"
+          ],
+          "icon": "add_circle",
+          "action": "create"
+        },
+        {
+          "label": "remove_circle\nAZALT",
+          "classes": [
+            "h-24",
+            "bg-error-container",
+            "text-error",
+            "rounded-xl",
+            "flex",
+            "flex-col",
+            "items-center",
+            "justify-center",
+            "group",
+            "active:scale-95",
+            "duration-150"
+          ],
+          "icon": "remove_circle",
+          "action": "click-action"
+        },
+        {
+          "label": "restart_alt\nSIFIRLA",
+          "classes": [
+            "md:col-span-4",
+            "h-16",
+            "bg-surface-container-high",
+            "hover:bg-surface-bright",
+            "text-on-secondary-container",
+            "rounded-xl",
+            "flex",
+            "items-center",
+            "justify-center",
+            "gap-3",
+            "transition-all",
+            "duration-200",
+            "active:scale-98"
+          ],
+          "icon": "restart_alt",
+          "action": "click-action"
+        }
+      ],
+      "inputs": [],
+      "navLinks": [
+        {
+          "label": "plus_one\nCounter",
+          "href": "#",
+          "classes": [
+            "flex",
+            "flex-col",
+            "items-center",
+            "justify-center",
+            "text-green-400",
+            "bg-[#23293c]",
+            "rounded-xl",
+            "px-4",
+            "py-2",
+            "scale-98",
+            "transition-all"
+          ],
+          "icon": "plus_one"
+        },
+        {
+          "label": "format_list_bulleted\nLogs",
+          "href": "#",
+          "classes": [
+            "flex",
+            "flex-col",
+            "items-center",
+            "justify-center",
+            "text-slate-500",
+            "px-4",
+            "py-2",
+            "hover:bg-[#23293c]",
+            "transition-all",
+            "duration-150"
+          ],
+          "icon": "format_list_bulleted"
+        },
+        {
+          "label": "query_stats\nAnalytics",
+          "href": "#",
+          "classes": [
+            "flex",
+            "flex-col",
+            "items-center",
+            "justify-center",
+            "text-slate-500",
+            "px-4",
+            "py-2",
+            "hover:bg-[#23293c]",
+            "transition-all",
+            "duration-150"
+          ],
+          "icon": "query_stats"
+        }
+      ],
+      "cards": [],
+      "icons": [
+        "history",
+        "settings",
+        "add_circle",
+        "remove_circle",
+        "restart_alt",
+        "plus_one",
+        "format_list_bulleted",
+        "query_stats"
+      ],
+      "images": [],
+      "cssVars": {},
+      "fonts": [
+        "Space Grotesk",
+        "Inter",
+        "Material Symbols Outlined"
+      ],
+      "layoutHints": {
+        "gridCols": 1,
+        "flexDirection": "col",
+        "gap": "6"
+      },
+      "tabBar": [
+        {
+          "label": "Counter",
+          "icon": "plus_one",
+          "active": false
+        },
+        {
+          "label": "Logs",
+          "icon": "format_list_bulleted",
+          "active": false
+        },
+        {
+          "label": "Analytics",
+          "icon": "query_stats",
+          "active": false
+        }
+      ],
+      "title": "Ana Sayaç Görünümü"
+    },
+    "65eafa211dbe41a887123bf25157a73f": {
+      "screenId": "65eafa211dbe41a887123bf25157a73f",
+      "sections": [
+        {
+          "tag": "header",
+          "classes": [
+            "w-full",
+            "top-0",
+            "sticky",
+            "bg-[#0c1324]",
+            "flex",
+            "justify-between",
+            "items-center",
+            "px-8",
+            "py-6",
+            "w-full"
+          ],
+          "childCount": 2
+        },
+        {
+          "tag": "main",
+          "classes": [
+            "flex-grow",
+            "flex",
+            "flex-col",
+            "items-center",
+            "justify-center",
+            "px-6",
+            "pb-32"
+          ],
+          "childCount": 8
+        },
+        {
+          "tag": "nav",
+          "classes": [
+            "fixed",
+            "bottom-0",
+            "left-0",
+            "w-full",
+            "flex",
+            "justify-around",
+            "items-center",
+            "px-6",
+            "pb-8",
+            "pt-4"
+          ],
+          "childCount": 0
+        }
+      ],
+      "buttons": [
+        {
+          "label": "refresh\nTekrar Dene",
+          "classes": [
+            "flex-grow",
+            "bg-primary-container",
+            "text-on-primary-container",
+            "font-bold",
+            "py-6",
+            "px-8",
+            "rounded-xl",
+            "flex",
+            "items-center",
+            "justify-center",
+            "gap-3",
+            "transition-transform",
+            "active:scale-95",
+            "duration-150",
+            "shadow-[0_20px_40px_rgba(34,197,94,0.15)]"
+          ],
+          "icon": "refresh",
+          "action": "click-action"
+        },
+        {
+          "label": "add\nVeri Ekle",
+          "classes": [
+            "flex-none",
+            "md:w-1/3",
+            "bg-secondary-container",
+            "text-on-secondary-container/30",
+            "font-medium",
+            "py-6",
+            "px-8",
+            "rounded-xl",
+            "flex",
+            "items-center",
+            "justify-center",
+            "gap-2",
+            "cursor-not-allowed",
+            "grayscale"
+          ],
+          "icon": "add",
+          "action": "create"
+        }
+      ],
+      "inputs": [],
+      "navLinks": [
+        {
+          "label": "plus_one\nCounter",
+          "href": "#",
+          "classes": [
+            "flex",
+            "flex-col",
+            "items-center",
+            "justify-center",
+            "text-slate-500",
+            "px-4",
+            "py-2",
+            "hover:bg-[#23293c]",
+            "transition-all",
+            "rounded-xl"
+          ],
+          "icon": "plus_one"
+        },
+        {
+          "label": "format_list_bulleted\nLogs",
+          "href": "#",
+          "classes": [
+            "flex",
+            "flex-col",
+            "items-center",
+            "justify-center",
+            "text-slate-500",
+            "px-4",
+            "py-2",
+            "hover:bg-[#23293c]",
+            "transition-all",
+            "rounded-xl"
+          ],
+          "icon": "format_list_bulleted"
+        },
+        {
+          "label": "query_stats\nAnalytics",
+          "href": "#",
+          "classes": [
+            "flex",
+            "flex-col",
+            "items-center",
+            "justify-center",
+            "text-slate-500",
+            "px-4",
+            "py-2",
+            "hover:bg-[#23293c]",
+            "transition-all",
+            "rounded-xl"
+          ],
+          "icon": "query_stats"
+        }
+      ],
+      "cards": [],
+      "icons": [
+        "history",
+        "settings",
+        "warning",
+        "error",
+        "refresh",
+        "add",
+        "plus_one",
+        "format_list_bulleted",
+        "query_stats"
+      ],
+      "images": [],
+      "cssVars": {},
+      "fonts": [
+        "Inter",
+        "Space Grotesk",
+        "Material Symbols Outlined"
+      ],
+      "layoutHints": {
+        "flexDirection": "col",
+        "gap": "4"
+      },
+      "tabBar": [
+        {
+          "label": "Counter",
+          "icon": "plus_one",
+          "active": false
+        },
+        {
+          "label": "Logs",
+          "icon": "format_list_bulleted",
+          "active": false
+        },
+        {
+          "label": "Analytics",
+          "icon": "query_stats",
+          "active": false
+        }
+      ],
+      "title": "Hata Durumu (Erişim Engellendi)"
+    },
+    "a6f16e7d5bd04177802017fb150029e7": {
+      "screenId": "a6f16e7d5bd04177802017fb150029e7",
+      "sections": [],
+      "buttons": [],
+      "inputs": [],
+      "navLinks": [],
+      "cards": [],
+      "icons": [],
+      "images": [],
+      "cssVars": {},
+      "fonts": [],
+      "layoutHints": {},
+      "tabBar": [],
+      "title": "sayac-v3 PRD"
+    }
+  }
+}
