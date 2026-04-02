@@ -10,6 +10,7 @@ interface UseCounterReturn {
   reset: () => void;
   loading: boolean;
   error: string | null;
+  setError: (error: string | null) => void;
 }
 
 // Subscribe function for useSyncExternalStore
@@ -93,5 +94,6 @@ export function useCounter(): UseCounterReturn {
     reset,
     loading: false, // Always false since we use useSyncExternalStore
     error,
+    setError,
   };
 }
