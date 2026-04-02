@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useCallback, useSyncExternalStore } from 'react';
 import { getStorageItem, setStorageItem } from '../utils/storage';
 
 const STORAGE_KEY = 'sayac-v3-count';
@@ -12,6 +12,30 @@ interface UseCounterReturn {
   error: string | null;
 }
 
+// Subscribe function for useSyncExternalStore
+function subscribe(callback: () => void) {
+  // localStorage changes from other tabs
+  window.addEventListener('storage', callback);
+  return () => window.removeEventListener('storage', callback);
+}
+
+// Get snapshot function for useSyncExternalStore
+function getSnapshot(): number {
+  const saved = getStorageItem(STORAGE_KEY);
+  if (saved !== null) {
+    const parsed = parseInt(saved, 10);
+    if (!isNaN(parsed)) {
+      return parsed;
+    }
+  }
+  return 0;
+}
+
+// Server snapshot - always returns 0 for SSR
+function getServerSnapshot(): number {
+  return 0;
+}
+
 /**
  * Custom hook for managing counter state with localStorage persistence
  * Handles increment (+1), decrement (-1), reset (to 0)
@@ -19,54 +43,47 @@ interface UseCounterReturn {
  * Handles errors (SecurityError, QuotaExceededError)
  */
 export function useCounter(): UseCounterReturn {
-  const [count, setCount] = useState<number>(0);
-  const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const isMounted = useRef(false);
+  
+  // Use useSyncExternalStore for syncing with localStorage
+  const count = useSyncExternalStore(
+    subscribe,
+    getSnapshot,
+    getServerSnapshot
+  );
 
-  // Load from localStorage on mount
-  useEffect(() => {
-    const saved = getStorageItem(STORAGE_KEY);
-    if (saved !== null) {
-      const parsed = parseInt(saved, 10);
-      if (!isNaN(parsed)) {
-        setCount(parsed);
-      }
-    }
-    setLoading(false);
-  }, []);
-
-  // Persist to localStorage whenever count changes
-  useEffect(() => {
-    if (!isMounted.current) {
-      isMounted.current = true;
-      return;
-    }
-
-    if (!loading) {
-      const success = setStorageItem(STORAGE_KEY, count.toString());
-      if (!success) {
-        // Use a microtask to avoid setState during render warning
-        Promise.resolve().then(() => {
-          setError('localStorage yazma hatası');
-        });
-      }
-    }
-  }, [count, loading]);
-
+  // Persist to localStorage whenever count changes via the actions
   const increment = useCallback(() => {
-    setCount(c => c + 1);
-    setError(null);
-  }, []);
+    const newCount = count + 1;
+    const success = setStorageItem(STORAGE_KEY, newCount.toString());
+    if (!success) {
+      setError('localStorage yazma hatası');
+    } else {
+      setError(null);
+    }
+    // Dispatch storage event to trigger re-render
+    window.dispatchEvent(new StorageEvent('storage', { key: STORAGE_KEY }));
+  }, [count]);
 
   const decrement = useCallback(() => {
-    setCount(c => c - 1);
-    setError(null);
-  }, []);
+    const newCount = count - 1;
+    const success = setStorageItem(STORAGE_KEY, newCount.toString());
+    if (!success) {
+      setError('localStorage yazma hatası');
+    } else {
+      setError(null);
+    }
+    window.dispatchEvent(new StorageEvent('storage', { key: STORAGE_KEY }));
+  }, [count]);
 
   const reset = useCallback(() => {
-    setCount(0);
-    setError(null);
+    const success = setStorageItem(STORAGE_KEY, '0');
+    if (!success) {
+      setError('localStorage yazma hatası');
+    } else {
+      setError(null);
+    }
+    window.dispatchEvent(new StorageEvent('storage', { key: STORAGE_KEY }));
   }, []);
 
   return {
@@ -74,7 +91,7 @@ export function useCounter(): UseCounterReturn {
     increment,
     decrement,
     reset,
-    loading,
+    loading: false, // Always false since we use useSyncExternalStore
     error,
   };
 }
